@@ -47,7 +47,7 @@ class SearchApiElasticsearchService extends SearchApiAbstractService {
         }
       }
 
-      $documents[] = new Document($id, $data, $index->machine_name);
+      $documents[$id] = new Document($id, $data, $index->machine_name);
     }
 
     return $elasticsearch_index->indexItems($documents);
