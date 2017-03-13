@@ -143,7 +143,8 @@ class SearchApiElasticsearchIndex {
       $documents[] = new Document($id);
     }
     $index = $this->getRealIndex();
-    $index->deleteDocuments($documents);
+    $type = $index->getType($this->search_api_index->machine_name);
+    $type->deleteDocuments($documents);
   }
 
   /**
