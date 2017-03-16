@@ -344,7 +344,7 @@ class SearchApiElasticsearchQuery {
    * @throws Exception
    */
   protected function parseFilter(SearchApiQueryFilterInterface $query_filter, $field_type = null, $ignored_field = null) {
-    if (empty($query_filter) || empty($field_type)) {
+    if (empty($query_filter)) {
       return null;
     }
     else {
@@ -434,7 +434,7 @@ class SearchApiElasticsearchQuery {
     }
     // Normal filters
     else {
-      switch ($filter_array['field_value']) {
+      switch ($filter_array['filter_operator']) {
         case '>':
           $query = new RangeQuery($filter_array['field_id'], ['gt' => $filter_array['field_value']]);
           break;
