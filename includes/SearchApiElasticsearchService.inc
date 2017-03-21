@@ -43,7 +43,7 @@ class SearchApiElasticsearchService extends SearchApiAbstractService {
             $value = date(SEARCH_API_ELASTICSEARCH_DATE_FORMAT, $value);
           }
 
-          $data[$field_id][] = $value;
+          if ($field_id != 'id') $data[$field_id][] = $value;
         }
       }
 
